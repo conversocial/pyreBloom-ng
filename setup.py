@@ -1,6 +1,4 @@
 import setuptools
-from pip.req import parse_requirements
-from pip.download import PipSession
 
 ext_files = ['pyreBloom/bloom.c']
 
@@ -41,15 +39,12 @@ setuptools.setup(
     ext_modules=ext_modules,
 
     install_requires=[
-        str(req.req) for req in parse_requirements('requirements.txt',
-                                                   session=PipSession())
-        ],
+        'Cython==0.24',
+    ],
 
     tests_require=[
-        str(req.req) for req in parse_requirements('requirements_test.txt',
-                                                   session=PipSession())
-        ],
-
+        'redis==2.10.5'
+    ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
@@ -61,12 +56,7 @@ setuptools.setup(
         'Programming Language :: C',
         'Programming Language :: Cython',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 )
